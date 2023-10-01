@@ -20,10 +20,44 @@ function findMinValue(arr){
 
 //Your function here...
 
+function sortedNums(arr) {
+  let sortedArray = [];
+  while (arr.length > 0) {
+      let min = findMinValue(arr)
+      // push new array
+      sortedArray.push(min);
+      // remove from old array
+      arr.splice(arr.indexOf(min), 1);
+  }
+  return sortedArray;
+}
+//console.log(sortedNums(nums1));
+//console.log(sortedNums(nums2));
+//console.log(sortedNums(nums3));
+
+
+
 /* BONUS MISSION: Refactor your sorting function to use recursion below:
  */
 
+function sortNumsRec(arr, sorted = []) {
+  // base case, return final sorted array
+  if (arr.length === 0) {
+    return sorted
+  }
+  let min = findMinValue(arr);
+  sorted.push(min);
+  arr.splice(arr.indexOf(min), 1);
+  // call the function with updated arrays
+  return sortNumsRec(arr, sorted);
+  }
+
 //Sample arrays for testing:
-let nums1 = [5, 10, 2, 42];
-let nums2 = [-2, 0, -10, -44, 5, 3, 0, 3];
-let nums3 = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
+let nums4A = [5, 10, 2, 42];
+let nums4B = [-2, 0, -10, -44, 5, 3, 0, 3];
+let nums4C = [200, 5, 4, 10, 8, 5, -3.3, 4.4, 0];
+
+
+console.log(sortNumsRec(nums4A));
+console.log(sortNumsRec(nums4B));
+console.log(sortNumsRec(nums4C));
