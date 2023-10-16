@@ -9,3 +9,7 @@ function checkFive(num){
    }
    return result;
  }
+
+ console.log(checkFive(1));
+ console.log(checkFive(5));
+ console.log(checkFive(9));
